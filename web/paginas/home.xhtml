@@ -1,24 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
      <h:body>
         <h:form>
-            <P>ENTRADA SALIDA EMPRESA</P>
-            <input type="text" name="id" value="ID" />
-            <input type="submit" value="REGISTAR HORA" />
-            <br/>
-            <br/>
-            <p>ENTRADA SALIDA BIBLIOTECA</p>
-            <input type="text" name="idBibilioteca" value="ID" />
-            <input type="submit" value="REGISTAR HORA." />
+            <p:panel header="Tu ID numero de acceso es:  #{usuarioController.selected.id} " style="width:450px">
+            <P>Registra tu Hora de ENTRADA  </P>
+            <h:inputText id="entrada" value="#{usuarioController.selected.entrada}" title="#{bundle.EditUsuarioTitle_entrada}" >
+                
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
             
+            <h:commandLink   action="#{usuarioController.update3()}" value="REGISTRAR"></h:commandLink>
+                          
+            <br/>
+                      
             <br/><br/>
-
-            
+          
+          </p:panel>  
        </h:form>
     </h:body>
 </html>

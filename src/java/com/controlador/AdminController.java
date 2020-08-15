@@ -56,6 +56,13 @@ public class AdminController implements Serializable {
     return null;
   
     }
+        public String loginAd2(){
+    
+       return"homeR";
+    }
+    
+    
+    
     public AdminController() {
     }
 

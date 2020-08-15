@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -15,31 +16,24 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{usuarioController.selected.id}" title="#{bundle.CreateUsuarioTitle_id}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_id}"/>
+                  
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_nombre}" for="nombre" />
                     <h:inputText id="nombre" value="#{usuarioController.selected.nombre}" title="#{bundle.CreateUsuarioTitle_nombre}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_nombre}"/>
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_apellidos}" for="apellidos" />
                     <h:inputText id="apellidos" value="#{usuarioController.selected.apellidos}" title="#{bundle.CreateUsuarioTitle_apellidos}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_apellidos}"/>
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_contrasena}" for="contrasena" />
-                    <h:inputText id="contrasena" value="#{usuarioController.selected.contrasena}" title="#{bundle.CreateUsuarioTitle_contrasena}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_contrasena}"/>
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_entrada}" for="entrada" />
-                    <h:inputText id="entrada" value="#{usuarioController.selected.entrada}" title="#{bundle.CreateUsuarioTitle_entrada}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_salida}" for="salida" />
-                    <h:inputText id="salida" value="#{usuarioController.selected.salida}" title="#{bundle.CreateUsuarioTitle_salida}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
+                    <p:password id="contrasena" value="#{usuarioController.selected.contrasena}" title="#{bundle.CreateUsuarioTitle_contrasena}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_contrasena}"/>
+                   
+                  
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{usuarioController.create}" value="#{bundle.CreateUsuarioSaveLink}" />
+                <h:commandLink  action="#{usuarioController.create}"  value="#{bundle.CreateUsuarioSaveLink}" />
+               
                 <br />
                 <br />
-                <h:commandLink action="#{usuarioController.prepareList}" value="#{bundle.CreateUsuarioShowAllLink}" immediate="true"/>
+                 <br />
                 <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateUsuarioIndexLink}"/>
+                
             </h:form>
         </ui:define>
     </ui:composition>
